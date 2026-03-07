@@ -1,4 +1,4 @@
-namespace MCPS3Launcher
+namespace MCConsolesLauncher
 {
     internal static class Program
     {

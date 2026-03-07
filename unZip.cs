@@ -2,7 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 
-namespace MCPS3L
+namespace MCConsolesLauncher
 {
     public static class ZipHandler
     {

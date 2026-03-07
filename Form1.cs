@@ -1,66 +1,33 @@
-using MCPS3L;
-using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
 
-namespace MCPS3Launcher
+namespace MCConsolesLauncher
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+
+
         async Task downloadClient()
         {
-            string remoteUrl = "https://mcps3cdn.hyzh.uk/client.zip";
-            string localFolder = @"C:\MCPS3\";
-
+            string cdn = "https://mcps3cdn.hyzh.uk/client.zip";
+            string cFolder = @"C:\MCConsoles\client";
             var progress = new Progress<double>(percent =>
             {
-                pbDownload.Value = (int)percent;
-                lblStatus.Text = $"Downloading: {percent:0}%";
+                progressBar1.Value = (int)percent;
+                label1.Text = $"{percent:0}%";
             });
 
-            
-            await FileDownloader.DownloadFileWithProgressAsync(remoteUrl, localFolder, progress);
+            await download.DownloadFileWithProgressAsync(cdn, cFolder, progress);
+
         }
-
-        private async void button2_Click(object sender, EventArgs e)
+        async Task downloadClientandExtract()
         {
-            pbDownload.Visible = true;
-            lblStatus.Visible = true;
-            string installPath = @"C:\MCPS3\";
-            string exePath = Path.Combine(installPath, "MinecraftClient.exe");
-            string zipPath = Path.Combine(installPath, "client.zip");
-
-            
-            if (File.Exists(exePath))
-            {
-                MessageBox.Show("The client is already installed!", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            
-            if (!Directory.Exists(installPath))
-            {
-                Directory.CreateDirectory(installPath);
-            }
-
-            
             try
             {
-                button2.Enabled = false; 
-
-                
                 await downloadClient();
-
-                if (File.Exists(zipPath))
+                if (File.Exists(@"C:\MCConsoles\client\client.zip"))
                 {
-                    lblStatus.Text = "Extracting files...";
-
-                    
-                    ZipHandler.ExtractAndCleanup(zipPath);
-
+                    label1.Text = "Extracting...";
+                    ZipHandler.ExtractAndCleanup(@"C:\MCConsoles\client\client.zip");
                     MessageBox.Show("Installation Complete!", "Finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -70,43 +37,125 @@ namespace MCPS3Launcher
             }
             finally
             {
-                button2.Enabled = true;
-                lblStatus.Text = "Ready";
-                pbDownload.Visible = false;
-                lblStatus.Visible = false;
+                label1.Text = "Ready!";
+            }
+
+        }
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(@"C:\MCConsoles"))
+            {
+                if (Directory.Exists(@"C:\MCConsoles\client"))
+                {
+                    if (File.Exists(@"C:\MCConsoles\client\MinecraftClient.exe"))
+                    {
+                        MessageBox.Show("The client is already installed!", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    else
+                    {
+                        await downloadClientandExtract();
+                    }
+                }
+                else
+                {
+                    Directory.CreateDirectory(@"C:\MCConsoles\client");
+                    await downloadClientandExtract();
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(@"C:\MCConsoles");
+                Directory.CreateDirectory(@"C:\MCConsoles\client");
+                await downloadClientandExtract();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             string usr = textBox1.Text;
-            if (Directory.Exists(@"C:\MCPS3\"))
+            if (Directory.Exists(@"C:\MCConsoles\client"))
             {
-                if (File.Exists(@"C:\MCPS3\MinecraftClient.Exe"))
+                if (File.Exists(@"C:\MCConsoles\client\MinecraftClient.Exe"))
                 {
-                    Process.Start(@"C:\MCPS3\MinecraftClient.exe", $"-name \"{usr}\"");
+                    Process.Start(@"C:\MCConsoles\client\MinecraftClient.exe", $"-name \"{usr}\"");
                 }
                 else
                 {
-                    MessageBox.Show("There is no mc", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There is no installation, click download to install!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-
+                MessageBox.Show("There is no installation, click download to install!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
+            string[] serverinfo = { textBox2.Text, textBox3.Text, textBox4.Text };
+            if (Directory.Exists(@"C:\MCConsoles"))
+            {
+                if (Directory.Exists(@"C:\MCConsoles\client"))
+                {
+                    if (File.Exists(@"C:\MCConsoles\client\servers.txt"))
+                    {
+                        File.AppendAllLines(@"C:\MCConsoles\client\servers.txt", serverinfo);
+                    }
+                    else
+                    {
+                        File.CreateText(@"C:\MCConsoles\client\servers.txt");
+                        File.AppendAllLines(@"C:\MCConsoles\client\servers.txt", serverinfo);
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("There is no installation, click download to install!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("There is no installation, click download to install!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            pbDownload.Visible = false;
-            lblStatus.Visible = false;
+            if (Directory.Exists(@"C:\MCConsoles"))
+            {
+                if (Directory.Exists(@"C:\MCConsoles\client"))
+                {
+                    if (File.Exists(@"C:\MCConsoles\client\servers.txt"))
+                    {
+                        File.WriteAllText(@"C:\MCConsoles\client\servers.txt", "");
+                    }
+                    else
+                    {
+                        
+                        
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("There is no installation, click download to install!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("There is no installation, click download to install!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

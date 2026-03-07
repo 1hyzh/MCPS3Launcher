@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace MCPS3Launcher
+namespace MCConsolesLauncher
 {
-    public static class FileDownloader
+    public static class download
     {
         private static readonly HttpClient _httpClient = new HttpClient();
         public static async Task<string> DownloadFileWithProgressAsync(string url, string folderPath, IProgress<double> progress = null)

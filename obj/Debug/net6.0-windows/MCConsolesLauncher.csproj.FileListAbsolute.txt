@@ -1,0 +1,16 @@
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\bin\Debug\net6.0-windows\MCConsolesLauncher.exe
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\bin\Debug\net6.0-windows\MCConsolesLauncher.deps.json
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\bin\Debug\net6.0-windows\MCConsolesLauncher.runtimeconfig.json
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\bin\Debug\net6.0-windows\MCConsolesLauncher.dll
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\bin\Debug\net6.0-windows\MCConsolesLauncher.pdb
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.Form1.resources
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.csproj.GenerateResource.cache
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.AssemblyInfoInputs.cache
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.AssemblyInfo.cs
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.csproj.CoreCompileInputs.cache
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.dll
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\refint\MCConsolesLauncher.dll
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.pdb
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\MCConsolesLauncher.genruntimeconfig.cache
+C:\Users\guille\source\repos\MCConsolesLauncher\MCConsolesLauncher\obj\Debug\net6.0-windows\ref\MCConsolesLauncher.dll
