@@ -8,6 +8,7 @@ A 4J Studios Minecraft version Launcher
  - Let's you add servers
  - Let's you download the client
 
-
+## Client:
+ Uses the [client](https://github.com/smartcmd/MinecraftConsoles) from [Daoge](https://github.com/smartcmd), which has keyboard and mouse support, and LAN multiplayer (thanks to [LCEMP](https://github.com/LCEMP/LCEMP))
 
 Consider starring this repo if you find it useful!
